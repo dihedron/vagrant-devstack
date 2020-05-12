@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
     end
 
     if Vagrant.has_plugin?("vagrant-disksize")
-        config.disksize.size = '10GB'
+        config.disksize.size = '15GB'
     end
 
     if Vagrant.has_plugin?("vagrant-proxyconf")
@@ -42,7 +42,8 @@ Vagrant.configure("2") do |config|
     config.vm.hostname = "devstack"
     config.vm.define "devstack"
     config.vm.box_check_update = false
-    config.vm.network "forwarded_port", guest: 80, host: 9080 # horizon
+	#config.vm.network "forwarded_port", guest: 80, host: 8080 # horizon
+	#config.vm.network "private_network", type: "dhcp"
     #config.vm.network "private_network", ip: "192.168.56.3"
     config.vm.provider "virtualbox" do |vb|
         vb.name = "devstack"
